@@ -2,6 +2,7 @@ package td;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.Random;
 
 
@@ -9,42 +10,54 @@ import java.util.Random;
  * Created by shuwn on 12/06/2017.
  */
 public class Joueurs {
-    public String nom;
-    public int niveau;
-    public int nbpoints;
-    public ArrayList<Pokemon> pokedex;
-    public Random rand;
+    private String nom;
+    private int niveau;
+    private int nbpoints;
+    ArrayList<Pokemon> pokedex;
 
 
-    public Joueurs (String nom, int niveau, int nbpoints) {
+    Joueurs(String nom, int niveau, int nbpoints) {
         this.nom=nom;
         this.niveau=niveau;
         this.nbpoints=nbpoints;
-        pokedex = new ArrayList<Pokemon>();
-        this.pokedex=pokedex;
+        pokedex = new ArrayList<>();
 
     }
     
-    public double vitesseMoyenne() {
+    double vitesseMoyenne() {
         int nbpokemon;
         nbpokemon=pokedex.size();
-        double vitesse=0;
+        double vitesse = 0.0;
         double vmoy=0;
+        double vtotal = 0.0;
         for (Pokemon p : pokedex ) {
            vitesse = p.getVitesse();
-           vmoy = vitesse/nbpokemon;
+           vtotal += vitesse;
         }
+        vmoy = vtotal/nbpokemon;
         return vmoy;
     }
 
-    public double vitesseMoyenneTYPE(String t) throws Exception {
-        int nbpokemon = pokedex.size();
-        double vmoytype = 0;
-        for ( Pokemon p : pokedex ) {
-            if (p.getType().equals(t)) {
-                vmoytype += p.getVitesse() / nbpokemon;
+    private int getNbPokemonOfType(String t) {
+        int nbPokemonOfType = 0;
+        for (Pokemon p : pokedex){
+            if (p.typeToString(p.getType()).equals(t)) {
+                nbPokemonOfType++;
             }
         }
+        return nbPokemonOfType;
+    }
+
+    double vitesseMoyenneTYPE(String t) throws Exception {
+
+        double vmoytype = 0;
+        double vtotal = 0;
+        for ( Pokemon p : pokedex ) {
+            if (p.typeToString(p.getType()).equals(t)) {
+                vtotal += p.getVitesse();
+            }
+        }
+        vmoytype = vtotal / this.getNbPokemonOfType(t);
         return vmoytype;
     }
 
@@ -52,11 +65,11 @@ public class Joueurs {
         return "\nNom : " + this.getNom() + "\nNiveau : " + this.getNiveau() + "\nNb Points : " + this.getNbpoints();
     }
 
-    public String getNom() {
+    String getNom() {
         return nom;
     }
 
-    public void setNom(String nom) {
+    void setNom(String nom) {
         this.nom = nom;
     }
 
@@ -64,15 +77,15 @@ public class Joueurs {
         return niveau;
     }
 
-    public void setNiveau(int niveau) {
+    void setNiveau(int niveau) {
         this.niveau = niveau;
     }
 
-    public int getNbpoints() {
+    int getNbpoints() {
         return nbpoints;
     }
 
-    public void setNbpoints(int nbpoints) {
+    void setNbpoints(int nbpoints) {
         this.nbpoints = nbpoints;
     }
 
@@ -92,12 +105,16 @@ public class Joueurs {
         this.pokedex.remove(p);
     }
 
-    public void attaquer(Joueurs adversaire){
-        int pokJ1 = this.rand.nextInt(6);
-        int pokJ2 = this.rand.nextInt(6);
+    void defier(Joueurs adversaire){
+        Random rand = new Random();
+        int pokJ1 = rand.nextInt(6);
+        int pokJ2 = rand.nextInt(6);
+
         Pokemon p1 = this.pokedex.get(pokJ1);
-        Pokemon p2 = j1.pokedex.get(pokJ2);
+        Pokemon p2 = adversaire.pokedex.get(pokJ2);
+        System.out.println(p1.getNom()+" "+p1.pv+"pv "+p1.pc+"pc attaque "+p2.getNom()+" "+p2.pv+"pv "+p2.pc+"pc !");
         p1.attaquer(p2);
+        System.out.println(p2.getNom()+" a desormais "+p2.pv+"pv !");
     }
 
 }

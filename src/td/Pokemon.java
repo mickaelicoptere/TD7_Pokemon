@@ -4,23 +4,25 @@ package td;
  * Created by shuwn on 30/05/2017.
  */
 public abstract class Pokemon {
-    protected String nom;
-    protected double taille;
-    protected double poids;
-    protected int pv;
-    protected int pc;
-    protected TypesPokemon type;
+    String nom;
+    double taille;
+    double poids;
+    int pv;
+    int pc;
+    private TypesPokemon type;
+    private double vitesse;
 
     public Pokemon(){
     }
 
-    public Pokemon(String nom, double taille, double poids, int pv, int pc, TypesPokemon t) {
+    Pokemon(String nom, double taille, double poids, int pv, int pc, TypesPokemon t) {
         this.type = t;
         this.nom=nom;
         this.taille=taille;
         this.poids=poids;
         this.pv=pv;
         this.pc=pc;
+        this.vitesse=calculVitesse();
     }
 
 
@@ -39,7 +41,7 @@ public abstract class Pokemon {
         return "\nJe suis le Pokemon "+this.getNom()+" (type "+this.getType()+ ")."+" Mon poids est de "+this.getPoids();
     }
 
-    public String getNom() {
+    String getNom() {
         return nom;
     }
 
@@ -47,7 +49,7 @@ public abstract class Pokemon {
         this.nom = nom;
     }
 
-    public double getTaille() {
+    double getTaille() {
         return taille;
     }
 
@@ -55,41 +57,45 @@ public abstract class Pokemon {
         this.taille = taille;
     }
 
-    public double getPoids() {
+    double getPoids() {
         return poids;
     }
 
-    public void setPoids(double poids) {
+    void setPoids(double poids) {
         this.poids = poids;
     }
 
-    public int getPv() {
+    int getPv() {
         return pv;
     }
 
-    public void setPv(int pv) {
+    void setPv(int pv) {
         this.pv = pv;
     }
 
-    public int getPc() {
+    int getPc() {
         return pc;
     }
 
-    public void setPc(int pc) {
+    void setPc(int pc) {
         this.pc = pc;
     }
 
-    public TypesPokemon getType() {
+    TypesPokemon getType() {
         return type;
     }
 
-    public void setType(TypesPokemon type) {
+    void setType(TypesPokemon type) {
         this.type = type;
     }
 
     public abstract double getVitesse();
 
     public abstract double calculVitesse();
+
+    String typeToString(TypesPokemon t) {
+        return String.valueOf(t);
+    }
 
 }
 

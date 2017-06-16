@@ -13,27 +13,30 @@ import td.Pokemon;
 
 class JoueursTest {
 
-    PokemonFEU j1p1;
-    PokemonPLANTE j1p2;
-    PokemonEAU j1p3;
-    PokemonELECTRIQUE j1p4;
-    PokemonFEU j1p5;
-    PokemonFEU j1p6;
+    private PokemonFEU j1p1;
+    private PokemonPLANTE j1p2;
+    private PokemonEAU j1p3;
+    private PokemonELECTRIQUE j1p4;
+    private PokemonFEU j1p5;
+    private PokemonFEU j1p6;
 
-    PokemonFEU j2p1;
-    PokemonPLANTE j2p2;
-    PokemonEAU j2p3;
-    PokemonELECTRIQUE j2p4;
-    PokemonFEU j2p5;
-    PokemonFEU j2p6;
+    private PokemonFEU j2p1;
+    private PokemonPLANTE j2p2;
+    private PokemonEAU j2p3;
+    private PokemonELECTRIQUE j2p4;
+    private PokemonFEU j2p5;
+    private PokemonFEU j2p6;
 
-    Joueurs j1;
-    Joueurs j2;
+    private Joueurs j1;
+    private Joueurs j2;
+
+    private double vmoy;
+
+    public JoueursTest() {
+    }
 
     @Before
     public void initialiser(){
-        Joueurs j1 = new Joueurs("Virgile", 4, 69);
-        Joueurs j2 = new Joueurs("Mickael", 4, 420);
 
         j1p1 = new PokemonFEU("Dracofeu", 300, 200, 230, 500, TypesPokemon.FEU);
         j1p2 = new PokemonPLANTE("Herbizarre", 200, 300, 280, 300, TypesPokemon.PLANTE);
@@ -49,8 +52,8 @@ class JoueursTest {
         j2p5 = new PokemonFEU("Bulbeuhzar", 190, 70, 420, 850, TypesPokemon.FEU);
         j2p6 = new PokemonFEU("Shitiflor", 300, 420, 23, 5, TypesPokemon.FEU);
 
-        Joueurs j1 = new Joueurs("Virgile", 4, 69);
-        Joueurs j2 = new Joueurs("Mickael", 4, 420);
+        j1 = new Joueurs("Virgile", 4, 69);
+        j2 = new Joueurs("Mickael", 4, 420);
 
         j1.pokedex.add(j1p1);
         j1.pokedex.add(j1p2);
@@ -68,11 +71,12 @@ class JoueursTest {
 
     }
 
+
+
     @Test
     void vitesseMoyenne() {
-        j1p1.vitesseMoyenne();
-        for(Pokemon p : pokedex)
-        assertEquals("La vitesse moyenne est incorrect",  ,j1.vitesseMoyenne());
+        vmoy = j1.vitesseMoyenne();
+        System.out.println(vmoy);
     }
 
     @Test
