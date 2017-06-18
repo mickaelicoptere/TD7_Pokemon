@@ -46,7 +46,7 @@ public class PokemonFEU extends Pokemon {
     }
 
     public String toString(){
-        return super.toString()+"ma vitesse est de "+this.getVitesse()+"km/h "+"j'ai"+this.getPattes()+"pattes, ma taille est de : "+super.getTaille()+"m.";
+        return super.toString()+" Ma vitesse est de "+this.calculVitesse()+" km/h "+"et j'ai "+this.getPattes()+" pattes.";
     }
 
 }

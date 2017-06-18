@@ -30,7 +30,7 @@ public class PokemonELECTRIQUE extends Pokemon {
     }
 
     public String toString(){
-        return super.toString()+"Mon poids est de "+this.getPoids()+", ma vitesse est de "+this.getVitesse()+"km/h. J'ai "+this.getAiles()+"ailes et"+this.getPattes()+"pattes , ma taille est de "+this.getTaille()+"m. Mon intensité est de :"+this.getIntensite();
+        return super.toString()+" Ma vitesse est de "+this.calculVitesse()+"km/h. J'ai "+this.getAiles()+" ailes et "+this.getPattes()+" pattes. Mon intensité est de  "+this.getIntensite()+" volt.";
     }
 
 

@@ -36,7 +36,7 @@ public class PokemonPLANTE extends Pokemon {
     }
 
     public String toString(){
-        return super.toString()+"Mon poids est de "+this.getPoids()+", ma vitesse est de "+this.getVitesse()+"km/h."+"ma taille est de "+this.getTaille();
+        return super.toString()+" Ma vitesse est de "+this.calculVitesse()+" km/h.";
     }
 
 }
