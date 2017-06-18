@@ -51,7 +51,7 @@ public class PokemonEAU extends Pokemon {
     }
 
     public String toString(){
-        return super.toString()+" Ma vitesse est de "+this.calculVitesse()+" km/h. J'ai "+this.getNageoires()+" nageoires.";
+        return super.toString()+" Ma vitesse est de "+this.calculVitesse()+" kilomètres/heures. J'ai "+this.getNageoires()+" nageoires.";
     }
 
 }

@@ -38,7 +38,7 @@ public abstract class Pokemon {
         public abstract void attaquer(Pokemon p);
 
     public String toString() {
-        return "\nJe suis le Pokemon "+this.getNom()+" (type "+this.getType()+ ")."+" Mon poids est de "+this.getPoids()+" kg. Ma taille est de "+getTaille()+" m. J'ai "+getPv()+" pv et "+getPc()+" pc.";
+        return "\nJe suis le Pokemon "+this.getNom()+" (type "+this.getType()+ ")."+" Mon poids est de "+this.getPoids()+" kilogrammes. Ma taille est de "+getTaille()+" mètres. J'ai "+getPv()+" points de vie et "+getPc()+" point de capacités.";
     }
 
     String getNom() {

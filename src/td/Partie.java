@@ -1,5 +1,7 @@
 package td;
 
+import t2s.son.LecteurTexte;
+
 import java.io.*;
 import java.nio.charset.Charset;
 import java.util.ArrayList;
@@ -72,6 +74,10 @@ public class Partie extends Main {
                 System.out.println(pTemp.toString());
 
             }
+
+            LecteurTexte lecteur = new LecteurTexte(initPokemon.get(8).toString());
+            lecteur.playAll();
+
         }
         catch (FileNotFoundException e) {
             e.printStackTrace();
