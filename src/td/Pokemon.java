@@ -1,5 +1,8 @@
 package td;
 
+import javax.swing.*;
+import java.awt.*;
+
 /**
  * Created by shuwn on 30/05/2017.
  */
@@ -11,6 +14,9 @@ public abstract class Pokemon {
     int pc;
     private TypesPokemon type;
     private double vitesse;
+//    private String fileImg;
+//    private ImageIcon iconPoke;
+//    private Image imgPoke;
 
     public Pokemon(){
     }

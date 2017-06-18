@@ -75,8 +75,9 @@ public class Partie extends Main {
 
             }
 
-            LecteurTexte lecteur = new LecteurTexte(initPokemon.get(8).toString());
-            lecteur.playAll();
+//            LecteurTexte lecteur = new LecteurTexte(initPokemon.get(8).toString());
+//            lecteur.playAll();
+
 
         }
         catch (FileNotFoundException e) {
