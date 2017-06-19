@@ -2,15 +2,17 @@ package td;
 
 import t2s.son.LecteurTexte;
 
+import javafx.scene.control.ListView;
 import java.io.*;
 import java.nio.charset.Charset;
 import java.util.ArrayList;
+import td.PokedexGUI;
 
 /**
  * Created by Virgile on 17/06/2017.
  * TU VOLES TU PAIES
  */
-public class Partie extends Main {
+public class Partie extends PokedexGUI {
 
 
 
@@ -45,8 +47,10 @@ public class Partie extends Main {
 
     private static double doubleTemp[] = new double[10];
     private static int intTemp[] = new int[10];
+    private static String[] listePok = new String[256];
+    private static int increment;
 
-    public static void main(String[] args) {
+    public static void initPartie() {
 
         String line = "";
         String splitBy = " ";
@@ -71,6 +75,8 @@ public class Partie extends Main {
                 int iTemp2 = intTemp[5];
                 Pokemon pTemp = createPokemonOfType(pokeTemp[1], nTemp, dTemp1, dTemp2, iTemp1, iTemp2, pokeTemp);
                 initPokemon.add(pTemp);
+                listePok[increment] = pTemp.getNom();
+                increment++;
                 System.out.println(pTemp.toString());
 
             }
@@ -86,5 +92,10 @@ public class Partie extends Main {
         catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+
+    public static String[] getListe() {
+        return listePok;
     }
 }
