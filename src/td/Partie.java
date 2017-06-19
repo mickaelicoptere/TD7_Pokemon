@@ -6,6 +6,9 @@ import javafx.scene.control.ListView;
 import java.io.*;
 import java.nio.charset.Charset;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+
 import td.PokedexGUI;
 
 /**
@@ -47,14 +50,16 @@ public class Partie extends PokedexGUI {
 
     private static double doubleTemp[] = new double[10];
     private static int intTemp[] = new int[10];
-    private static String[] listePok = new String[256];
-    private static int increment;
+    public static int increment;
+    public static ArrayList<Pokemon> initPokemon;
+    public static Map<Integer, Pokemon> correspondanceId = new HashMap<>();
+
 
     public static void initPartie() {
 
         String line = "";
         String splitBy = " ";
-        ArrayList<Pokemon> initPokemon = new ArrayList<>();
+        initPokemon = new ArrayList<>();
 
 
         try (BufferedReader reader = new BufferedReader(new FileReader("ListePokemon.txt"))){
@@ -74,15 +79,13 @@ public class Partie extends PokedexGUI {
                 int iTemp1 = intTemp[4];
                 int iTemp2 = intTemp[5];
                 Pokemon pTemp = createPokemonOfType(pokeTemp[1], nTemp, dTemp1, dTemp2, iTemp1, iTemp2, pokeTemp);
-                initPokemon.add(pTemp);
-                listePok[increment] = pTemp.getNom();
+                initPokemon.add(createPokemonOfType(pokeTemp[1], nTemp, dTemp1, dTemp2, iTemp1, iTemp2, pokeTemp));
+                correspondanceId.put(increment, pTemp);
                 increment++;
-                System.out.println(pTemp.toString());
 
             }
 
-//            LecteurTexte lecteur = new LecteurTexte(initPokemon.get(8).toString());
-//            lecteur.playAll();
+
 
 
         }
@@ -95,7 +98,4 @@ public class Partie extends PokedexGUI {
     }
 
 
-    public static String[] getListe() {
-        return listePok;
-    }
 }

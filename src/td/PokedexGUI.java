@@ -25,7 +25,6 @@ import java.util.logging.Logger;
 
 import static com.sun.java.accessibility.util.AWTEventMonitor.addMouseListener;
 import static com.sun.java.accessibility.util.AWTEventMonitor.addMouseMotionListener;
-import static td.MotionPanel.isBetween;
 
 /**
  * Created by Virgile on 18/06/2017.
@@ -53,10 +52,6 @@ public class PokedexGUI extends Application {
 
 
         try {
-            Point p = new Point(297, 47);
-            Dimension d = new Dimension(293, 214);
-
-
             Partie.initPartie();
             stage.initStyle(StageStyle.TRANSPARENT);
             ap = FXMLLoader.load(getClass().getResource("../Views/Pokedex.fxml"));

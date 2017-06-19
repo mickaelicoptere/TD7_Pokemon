@@ -2,10 +2,14 @@ package Controllers;
 
 import java.awt.*;
 import java.awt.event.MouseAdapter;
+
+import com.jfoenix.controls.JFXListView;
 import javafx.scene.input.MouseEvent;
 import java.awt.event.MouseMotionAdapter;
 import java.io.IOException;
 import java.net.URL;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -17,7 +21,10 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import t2s.son.LecteurTexte;
+import td.Partie;
 import td.PokedexGUI;
+import td.Pokemon;
 
 import javax.swing.*;
 
@@ -28,14 +35,25 @@ public class ControllerGUI implements Initializable {
 
     @FXML
     AnchorPane ap;
+    @FXML
+    private JFXListView<String> ListePokemon = new JFXListView<>();
+    private Map<String, String> correspondanceNom = new HashMap<>();
+
+
+
 
     public Point initialClick;
+    int nbPoke = Partie.increment;
 
 
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         System.out.println("Initialisation du controller");
+        for(int i = 0; i < nbPoke; i++) {
+            ListePokemon.getItems().add(Partie.correspondanceId.get(i).getNom());
+            correspondanceNom.put(Partie.correspondanceId.get(i).getNom(), Partie.correspondanceId.get(i).toString());
+        }
     }
 
 @FXML
@@ -56,6 +74,13 @@ void drag(MouseEvent event) throws Exception {
             ap.setLayoutY(Y);
         }
 }
+
+@FXML
+void handleListeClicked() {
+    String str = correspondanceNom.get(ListePokemon.getSelectionModel().getSelectedItem());
+    LecteurTexte lecteur = new LecteurTexte(str);
+    lecteur.play();
+    }
 
 @FXML
 void getInitialClick(MouseEvent event) {
