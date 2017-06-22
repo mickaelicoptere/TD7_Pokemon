@@ -19,7 +19,6 @@ public class PokemonFEU extends Pokemon {
         return v;
     }
 
-
     public int getPattes() {
         return pattes;
     }

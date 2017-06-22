@@ -1,23 +1,16 @@
 package td;
 
-import t2s.son.LecteurTexte;
-
-import javafx.scene.control.ListView;
-import java.io.*;
-import java.nio.charset.Charset;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
-
-import td.PokedexGUI;
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.*;
 
 /**
  * Created by Virgile on 17/06/2017.
  * TU VOLES TU PAIES
  */
 public class Partie extends PokedexGUI {
-
-
 
     private static Pokemon createPokemonOfType(String type, String nom, double taille, double poids, int pv, int pc, String[] pokeTemp) {
         switch (type) {
@@ -53,14 +46,14 @@ public class Partie extends PokedexGUI {
     public static int increment;
     public static ArrayList<Pokemon> initPokemon;
     public static Map<Integer, Pokemon> correspondanceId = new HashMap<>();
-
+//    public static ArrayList<Pokemon>pokedexJ1;
+//    public static ArrayList<Pokemon>pokedexJ2;
 
     public static void initPartie() {
 
         String line = "";
         String splitBy = " ";
         initPokemon = new ArrayList<>();
-
 
         try (BufferedReader reader = new BufferedReader(new FileReader("ListePokemon.txt"))){
             while ((line = reader.readLine()) != null) {
@@ -82,12 +75,8 @@ public class Partie extends PokedexGUI {
                 initPokemon.add(createPokemonOfType(pokeTemp[1], nTemp, dTemp1, dTemp2, iTemp1, iTemp2, pokeTemp));
                 correspondanceId.put(increment, pTemp);
                 increment++;
-
+                //System.out.println(pTemp);
             }
-
-
-
-
         }
         catch (FileNotFoundException e) {
             e.printStackTrace();
@@ -96,6 +85,25 @@ public class Partie extends PokedexGUI {
             e.printStackTrace();
         }
     }
+
+//   public static void initPokedexj1(){
+//       pokedexJ1 = new ArrayList<>();
+//       for (int i = 0; i < 10; i++){
+//            Collections.shuffle(initPokemon);
+//            pokedexJ1.add(i, initPokemon.get(i));
+//            System.out.println("Pokemon n° : " + i + pokedexJ1.get(i) + "\n");
+//        }
+//   }
+
+//    public static void initPokedexj2(){
+//        pokedexJ2 = new ArrayList<>();
+//        for (int i = 0; i < 10; i++){
+//            Collections.shuffle(initPokemon);
+//            pokedexJ2.add(i, initPokemon.get(i));
+//            System.out.println("Pokemon n° : " + i + pokedexJ2.get(i) + "\n");
+//        }
+//    }
+
 
 
 }

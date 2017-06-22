@@ -1,25 +1,21 @@
 package td;
 
-import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
-import javafx.scene.layout.AnchorPane;
-import javafx.stage.Stage;
+import org.fusesource.jansi.Ansi;
 
-import java.awt.*;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import static org.fusesource.jansi.Ansi.ansi;
 
-public class Main extends Application {
-
-    public static Stage primaryStage;
+public class Main  {
 
     public static void main(String[] args) {
-        launch(args);
-    }
+        Joueurs j1 = new Joueurs("Mickaelicoptere", 7, 420);
+        Joueurs j2 = new Joueurs("Virgilet de sauvetage", 8, 666);
 
-    @Override
-    public void start(Stage stage) throws Exception {
-
+        Partie.initPartie();
+        j1.initPokedex();
+        j2.initPokedex();
+            for(int i=0; i<20; i++) {
+                System.out.println(ansi().fg(Ansi.Color.GREEN).a("Nouveau duel !").reset());
+                j1.defier(j2);
+            }
+        }
     }
-}

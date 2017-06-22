@@ -1,8 +1,5 @@
 package td;
 
-import javax.swing.*;
-import java.awt.*;
-
 /**
  * Created by shuwn on 30/05/2017.
  */
@@ -30,7 +27,6 @@ public abstract class Pokemon {
         this.pc=pc;
         this.vitesse=calculVitesse();
     }
-
 
         public boolean isAlive () {
             if (this.pv > 0){
