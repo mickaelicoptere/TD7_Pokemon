@@ -13,9 +13,14 @@ public class Main  {
         Partie.initPartie();
         j1.initPokedex();
         j2.initPokedex();
-            for(int i=0; i<20; i++) {
-                System.out.println(ansi().fg(Ansi.Color.GREEN).a("Nouveau duel !").reset());
+
+        System.out.println(ansi().fg(Ansi.Color.BLUE).a("Joueur 1 : "+j1.toString()+"\n").reset());
+        System.out.println(ansi().fg(Ansi.Color.YELLOW).a("Joueur 2 : "+j2.toString()+"\n").reset());
+
+            for(int i=0; i< 20 ; i++) {
                 j1.defier(j2);
+//                if()
             }
+        System.out.println();
         }
     }

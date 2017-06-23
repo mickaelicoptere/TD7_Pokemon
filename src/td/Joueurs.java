@@ -1,5 +1,5 @@
 package td;
-
+//TODO FAIRE JAVADOC
 import org.fusesource.jansi.Ansi;
 
 import java.util.ArrayList;
@@ -123,19 +123,21 @@ public class Joueurs {
         Pokemon p1 = this.pokedex.get(rndIndex1);
         Pokemon p2 = adversaire.pokedex.get(rndIndex2);
         while (p2.isAlive() && p1.isAlive()) {
-            System.out.println("Joueur 1 attaque ");
+            System.out.println(ansi().fg(Ansi.Color.BLUE).a("Joueur 1 attaque ").reset());
             System.out.println(p1.getNom() + " " + p1.pv + "pv " + p1.pc + "pc attaque " + p2.getNom() + " " + p2.pv + "pv " + p2.pc + "pc !\n");
             p1.attaquer(p2);
             if(p2.isAlive()==false){
-                System.out.println(ansi().fg(Ansi.Color.RED).a("\n" + "Le pokémon : " + p1.getNom() + " a niqué : " + p2.getNom() +"("+p2.pv+")"+ " !!!\n").reset());
+                System.out.println(ansi().fg(Ansi.Color.RED).a("\n" + "Le pokémon " + p1.getNom() + " a mis KO : " + p2.getNom() +"("+p2.pv+"pv"+")"+ " !!!\n").reset());
+                System.out.println(ansi().fg(Ansi.Color.GREEN).a("Nouveau duel !").reset());
                 break;
             }
             System.out.println(p2.getNom() + " a desormais " + p2.pv + "pv !\n");
-            System.out.println("Joueur 2 attaque ");
+            System.out.println(ansi().fg(Ansi.Color.YELLOW).a("Joueur 2 attaque ").reset());
             System.out.println(p2.getNom() + " " + p2.pv + "pv " + p2.pc + "pc attaque " + p1.getNom() + " " + p1.pv + "pv " + p1.pc + "pc !\n");
             p2.attaquer(p1);
             if(p1.isAlive()==false){
-                System.out.println(ansi().fg(Ansi.Color.RED).a("\n" + "Le pokémon : " + p2.getNom() + " a niqué : " + p1.getNom()+ "("+p1.pv+")" + " !!!\n").reset());
+                System.out.println(ansi().fg(Ansi.Color.RED).a("\n" + "Le pokémon " + p2.getNom() + " a mis KO : " + p1.getNom()+ "("+p1.pv+"pv"+")" + " !!!\n").reset());
+                System.out.println(ansi().fg(Ansi.Color.GREEN).a("Nouveau duel !").reset());
                 break;
             }
             System.out.println(p1.getNom() + " a desormais " + p1.pv + "pv !\n");
@@ -155,5 +157,8 @@ public class Joueurs {
         int j = rnd.nextInt(10);
         return j;
     }
+
+//    public String hasWon(){
+//    }
 
 }
