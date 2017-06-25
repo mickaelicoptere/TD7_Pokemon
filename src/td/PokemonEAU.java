@@ -4,7 +4,7 @@ package td;
  * Created by shuwn on 30/05/2017.
  */
 public class PokemonEAU extends Pokemon {
-    protected int nageoires;
+    private int nageoires;
 
 
     public PokemonEAU(String nom, double taille, double poids, int pv, int pc, TypesPokemon t) {
@@ -30,8 +30,7 @@ public class PokemonEAU extends Pokemon {
 
 
     public double getVitesse(){
-        double v = this.calculVitesse();
-        return v;
+        return round(this.calculVitesse());
     }
 
     public int getNageoires() {
@@ -51,7 +50,7 @@ public class PokemonEAU extends Pokemon {
     }
 
     public String toString(){
-        return super.toString()+" Ma vitesse est de "+this.calculVitesse()+" kilomètres/heures. J'ai "+this.getNageoires()+" nageoires.";
+        return super.toString()+" Ma vitesse est de "+this.getVitesse()+" kilomètres/heures. J'ai "+this.getNageoires()+" nageoires.";
     }
 
 }

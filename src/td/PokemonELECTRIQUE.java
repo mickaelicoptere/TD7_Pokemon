@@ -4,9 +4,9 @@ package td;
  * Created by shuwn on 30/05/2017.
  */
 public class PokemonELECTRIQUE extends Pokemon {
-    protected int pattes;
-    protected int ailes;
-    protected double intensite;
+    private int pattes;
+    private int ailes;
+    private double intensite;
 
     public PokemonELECTRIQUE(String nom, double taille, double poids, int pv, int pc, TypesPokemon t){
         super(nom, taille, poids, pv, pc, TypesPokemon.ELECTRIQUE);
@@ -30,11 +30,11 @@ public class PokemonELECTRIQUE extends Pokemon {
     }
 
     public String toString(){
-        return super.toString()+" Ma vitesse est de "+this.calculVitesse()+" kilomètres/heures. J'ai "+this.getAiles()+" ailes et "+this.getPattes()+" pattes. Mon intensité est de  "+this.getIntensite()+" volt.";
+        return super.toString()+" Ma vitesse est de "+this.getVitesse()+" kilomètres/heures. J'ai "+this.getAiles()+" ailes et "+this.getPattes()+" pattes. Mon intensité est de  "+this.getIntensite()+" volt.";
     }
 
 
-    public int getPattes() {
+    private int getPattes() {
         return pattes;
     }
 
@@ -50,13 +50,12 @@ public class PokemonELECTRIQUE extends Pokemon {
         this.ailes = ailes;
     }
 
-    public double getIntensite() {
+    private double getIntensite() {
         return intensite;
     }
 
     public double getVitesse(){
-        double v = this.calculVitesse();
-        return v;
+        return round(this.calculVitesse());
     }
 
 

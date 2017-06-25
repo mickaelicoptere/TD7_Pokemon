@@ -1,8 +1,5 @@
 package td;
 
-import javax.swing.*;
-import java.awt.*;
-
 /**
  * Created by shuwn on 30/05/2017.
  */
@@ -30,7 +27,6 @@ public abstract class Pokemon {
         this.pc=pc;
         this.vitesse=calculVitesse();
     }
-
 
         public boolean isAlive () {
             if (this.pv > 0){
@@ -101,6 +97,20 @@ public abstract class Pokemon {
 
     String typeToString(TypesPokemon t) {
         return String.valueOf(t);
+    }
+
+    /**
+     *
+     * @param value étant la valeur à arrondir
+     * @return la valeur arrondie au nombre de décimales voulues
+     *
+     *      La méthode permet d'arrondir les vitesses qui font parfois plusieures décimales
+     */
+    public static double round(double value) {
+        long factor = (long) Math.pow(10, 2);
+        value = value * factor;
+        long tmp = Math.round(value);
+        return (double) tmp / factor;
     }
 
 }

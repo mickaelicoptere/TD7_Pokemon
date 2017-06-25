@@ -4,7 +4,7 @@ package td;
  * Created by shuwn on 30/05/2017.
  */
 public class PokemonFEU extends Pokemon {
-    protected int pattes;
+    private int pattes;
 
     public PokemonFEU(String nom, double taille, double poids, int pv, int pc, TypesPokemon t) {
         super(nom, taille, poids, pv, pc, TypesPokemon.FEU);
@@ -15,10 +15,8 @@ public class PokemonFEU extends Pokemon {
     }
 
     public double getVitesse(){
-        double v = this.calculVitesse();
-        return v;
+        return round(this.calculVitesse());
     }
-
 
     public int getPattes() {
         return pattes;
@@ -46,7 +44,7 @@ public class PokemonFEU extends Pokemon {
     }
 
     public String toString(){
-        return super.toString()+" Ma vitesse est de "+this.calculVitesse()+" kilomètres/heures "+"et j'ai "+this.getPattes()+" pattes.";
+        return super.toString()+" Ma vitesse est de "+this.getVitesse()+" kilomètres/heures "+"et j'ai "+this.getPattes()+" pattes.";
     }
 
 }

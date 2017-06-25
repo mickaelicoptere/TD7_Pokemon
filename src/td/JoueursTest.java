@@ -1,12 +1,10 @@
 package td;
 
-import static org.junit.Assert.assertNotNull;
+import org.junit.Before;
+import org.junit.Test;
 
-import com.sun.xml.internal.bind.v2.TODO;
-import junit.framework.TestCase;
-import org.junit.*;
-import static org.junit.Assert.*;
-import td.Pokemon;
+import static org.junit.Assert.assertEquals;
+
 /**
  * Created by shuwn on 12/06/2017.
  */
@@ -132,8 +130,9 @@ class JoueursTest {
 
     @Test
     void attaquer() {
-
+//        assertEquals("",);
     }
+
 
 
 }

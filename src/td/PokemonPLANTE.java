@@ -14,8 +14,7 @@ public class PokemonPLANTE extends Pokemon {
     }
 
     public double getVitesse(){
-        double v = this.calculVitesse();
-        return v;
+        return round(this.calculVitesse());
     }
 
     public void attaquer(Pokemon p) {
@@ -36,7 +35,7 @@ public class PokemonPLANTE extends Pokemon {
     }
 
     public String toString(){
-        return super.toString()+" Ma vitesse est de "+this.calculVitesse()+" kilomètres/heures.";
+        return super.toString()+" Ma vitesse est de "+this.getVitesse()+" kilomètres/heures.";
     }
 
 }

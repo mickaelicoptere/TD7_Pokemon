@@ -4,6 +4,7 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Text?>
 
 <AnchorPane fx:id="ap" maxHeight="637.0" maxWidth="900.0" minHeight="637.0" minWidth="900.0" onMouseDragged="#drag" onMousePressed="#getInitialClick" prefHeight="637.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.ControllerGUI">
 <children>
@@ -12,6 +13,7 @@
          <Image url="@../img/pokedex.png" /> <!-- You should change this image file and set new image -->
       </image>
    </ImageView>
-      <JFXListView layoutX="299.0" layoutY="48.0" prefHeight="212.0" prefWidth="289.0" fx:id="ListePokemon" onMouseClicked="#handleListeClicked"/>
+      <JFXListView fx:id="ListePokemon" layoutX="299.0" layoutY="48.0" onMouseClicked="#handleListeClicked" prefHeight="212.0" prefWidth="289.0" />
+      <Text fx:id="Description" layoutX="299.0" layoutY="394.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="289.00000154972076" />
 </children>
 </AnchorPane>
