@@ -52,58 +52,6 @@ public class PokemonTest {
     public PokemonTest() {
     }
 
-//    @Before
-//    public void initialiser(){
-//        pFeu = new PokemonFEU("Salameche", 210.0, 81.5, 200, 70, TypesPokemon.FEU);
-//        pEau = new PokemonEAU("Caratchoin", 200, 60, 33, 65, TypesPokemon.EAU);
-//        pElec = new PokemonELECTRIQUE("Voltorbe", 102, 99.9, 500, 200, TypesPokemon.ELECTRIQUE);
-//        pPlante = new PokemonPLANTE("Groot", 400, 95.3, 98, 85, TypesPokemon.PLANTE);
-//        pEau.setNageoires(3);
-//        pFeu.setPattes(2);
-//        pElec.setAiles(2);
-//
-//        j1p1 = new PokemonFEU("Dracofeu", 300, 200, 230, 70, TypesPokemon.FEU);
-//        j1p1.setPattes(3);
-//        j1p2 = new PokemonPLANTE("Herbizarre", 3.5, 150, 280, 300, TypesPokemon.PLANTE);
-//        j1p3 = new PokemonEAU("Tortank", 250, 150, 180, 700, TypesPokemon.EAU);
-//        j1p3.setNageoires(3);
-//        j1p4 = new PokemonELECTRIQUE("Electhor", 150, 100, 250, 400, TypesPokemon.ELECTRIQUE);
-//        j1p4.setAiles(5);
-//        j1p4.setIntensite(10.4);
-//        j1p5 = new PokemonFEU("Mickael", 190, 70, 230, 850, TypesPokemon.FEU);
-//        j1p5.setPattes(4);
-//        j1p6 = new PokemonFEU("Freundlich", 300, 20000, 23, 5, TypesPokemon.FEU);
-//        j1p6.setPattes(8);
-//
-//        j2p1 = new PokemonFEU("Nekfeu", 300, 200, 230, 420, TypesPokemon.FEU);
-//        j2p2 = new PokemonPLANTE("Weedizar", 200, 420, 420, 300, TypesPokemon.PLANTE);
-//        j2p3 = new PokemonEAU("Torbong", 420, 150, 180, 420, TypesPokemon.EAU);
-//        j2p4 = new PokemonELECTRIQUE("Electehr", 150, 100, 250, 420, TypesPokemon.ELECTRIQUE);
-//        j2p5 = new PokemonFEU("Bulbeuhzar", 190, 70, 420, 850, TypesPokemon.FEU);
-//        j2p6 = new PokemonFEU("Shitiflor", 300, 420, 23, 5, TypesPokemon.FEU);
-//
-//        j1 = new Joueurs("test", 3, 10);
-//        j2 = new Joueurs("Mickael", 4, 420);
-//        j1.pokedex.add(j1p1);
-//        j1.pokedex.add(j1p2);
-//        j1.pokedex.add(j1p3);
-//        j1.pokedex.add(j1p4);
-//        j1.pokedex.add(j1p5);
-//        j1.pokedex.add(j1p6);
-//
-//        j2.pokedex.add(j2p1);
-//        j2.pokedex.add(j2p2);
-//        j2.pokedex.add(j2p3);
-//        j2.pokedex.add(j2p4);
-//        j2.pokedex.add(j2p5);
-//        j2.pokedex.add(j2p6);
-//
-//    }
-
-
-
-
-
     @Before
     public void initialiser(){
         pFeu = new PokemonFEU("Salameche", 210.0, 81.5, 200, 70, TypesPokemon.FEU);
@@ -150,6 +98,10 @@ public class PokemonTest {
         j1.pokedex.add(j1p4);
         j1.pokedex.add(j1p5);
         j1.pokedex.add(j1p6);
+        j1.pokedex.add(j1p7);
+        j1.pokedex.add(j1p8);
+        j1.pokedex.add(j1p9);
+        j1.pokedex.add(j1p10);
 
         j2.pokedex.add(j2p1);
         j2.pokedex.add(j2p2);
