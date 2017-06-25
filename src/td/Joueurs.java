@@ -3,7 +3,6 @@ import org.fusesource.jansi.Ansi;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Random;
 
 import static org.fusesource.jansi.Ansi.ansi;
 import static td.Partie.initPokemon;
@@ -29,14 +28,6 @@ public class Joueurs {
         this.pokedex = new ArrayList<>();
     }
 
-//        ArrayList<Pokemon> pokedex = new ArrayList<>();
-//        for ( int boundj1 = 0; boundj1 < 10; boundj1++ ) {
-//                Collections.shuffle(initPokemon);
-//                pokedex.add(boundj1, initPokemon.get(boundj1));
-//                System.out.println("Pokemon n° : " + boundj1 + pokedex.get(boundj1) + "\n");
-//            }
-////        this.pokedex = pokedex;
-//    }
 
     /**
      *
@@ -89,7 +80,6 @@ public class Joueurs {
         vmoytype = vtotal / this.getNbPokemonOfType(t);
         return vmoytype;
     }
-
 
     public String toString (){
         return "\nNom : " + this.getNom() + "\nNiveau : " + this.getNiveau() + "\nNb Points : " + this.getNbpoints();
@@ -145,7 +135,6 @@ public class Joueurs {
         this.pokedex.remove(p);
     }
 
-
     /**
      *
      * @param j2 étant le joueur attaqué par le joueur this.
@@ -155,7 +144,7 @@ public class Joueurs {
      *              Tant qu'un combat est en cours :
      *                  Un pokemon attaque l'autre selon leur vitesse. Si l'autre est toujours en vie, il réplique. Sinon,
      *                  on incrémente l'index de son pokemon actuel et on stocke ce dernier dans p1/p2.
-     *                  On recommence la boucle jusqu'à ce qu'un joueur n'ait plus de pokemon.
+     *                  On recommence la boucle jusqu'à ce qu'un joueur n'ai plus de pokemon.
      *                  On détermine lequel des deux a gagné.
      *          Un booléen j2HasSwitched est mis en place pour être sûr que j2 ne change pas de pokemon alors que j1 a déjà changé.
      */
@@ -195,58 +184,30 @@ public class Joueurs {
             if (p1.isAlive()) {
                 System.out.println(ansi().fg(Ansi.Color.RED).a("\n" + "Le pokémon " + p1.getNom() + " " + p1.getPv() + " a mis KO : " + p2.getNom() +"("+p2.pv+"pv"+")"+ " !!!\n").reset());
                 if(j == 9) {
-                    System.out.println(this.getNom()+" a gagné");
+                    System.out.println((ansi().fg(Ansi.Color.GREEN).a(this.getNom()+" a gagné").reset()));
                     return;
                 }
                 System.out.println(ansi().fg(Ansi.Color.GREEN).a("Nouveau duel !").reset());
                 j++;
                 p2 = j2.pokedex.get(j);
                 nbPokemonJ2--;
+                mortj2=j;
                 j2HasSwitched = true;
             } else if (p2.isAlive() && j2HasSwitched == false) {
                 System.out.println(ansi().fg(Ansi.Color.RED).a("\n" + "Le pokémon " + p2.getNom() + " " + p2.getPv() + " a mis KO : " + p1.getNom()+ "("+p1.pv+"pv"+")" + " !!!\n").reset());
                 if(i == 9) {
-                    System.out.println(j2.getNom()+" a gagné");
+                    System.out.println((ansi().fg(Ansi.Color.GREEN).a(j2.getNom()+" a gagné").reset()));
                     return;
                 }
                 System.out.println(ansi().fg(Ansi.Color.GREEN).a("Nouveau duel !").reset());
                 i++;
                 p1 = this.pokedex.get(i);
                 nbPokemonJ1--;
+                mortj1=i;
             }
         }
 
     }
-
-//    public void defier(Joueurs adversaire){
-//        Random rand = new Random();
-//        int rndIndex1 = rand.nextInt(boundj1);
-//        int rndIndex2 = rand.nextInt(boundj2);
-//        Pokemon p1 = this.pokedex.get(rndIndex1);
-//        Pokemon p2 = adversaire.pokedex.get(rndIndex2);
-//
-//        if(!p1.isAlive()) p1=selectAlivePokemon1(p1);
-//        if(!p2.isAlive()) p2=selectAlivePokemon2(p2);
-//
-//        while (p2.isAlive() && p1.isAlive()) {
-
-//            p1.attaquer(p2);
-//            if(!p2.isAlive()){
-
-//                boundj2--;
-//                mortj2++;
-//                break;
-//            }
-
-//            p2.attaquer(p1);
-//            if(!p1.isAlive()){
-
-//                boundj1--;
-//                mortj1++;
-//                break;
-//            }
-//        }
-//    }
 
     /**
      * Mélange du pokedex grâce à la méthode shuffle, puis on instancie les 10 premiers pokemon dans le pokedex du joueur sur lequel on invoque la méthode.
@@ -260,15 +221,6 @@ public class Joueurs {
         }
     }
 
-//    public static int indexRandomPokemon(){
-//        Random rnd = new Random();
-//        int boundj2 = rnd.nextInt(10);
-//        return boundj2;
-//    }
-
-
-//    public String hasWon(){
-//    }
 
 
 }

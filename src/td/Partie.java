@@ -85,6 +85,26 @@ public class Partie extends PokedexGUI {
         }
     }
 
+    public static void printDeadPokemonsj1(Joueurs j1) {
+        for ( Pokemon p : j1.pokedex ) {
+            if(!p.isAlive()){
+                System.out.print(p.getNom());
+                System.out.print(" ");
+            }
+        }
+        System.out.print(".");
+    }
+
+    public static void printDeadPokemonsj2(Joueurs j2) {
+        for ( Pokemon p : j2.pokedex ) {
+            if(!p.isAlive()){
+                System.out.print(p.getNom());
+                System.out.print(" ");
+            }
+        }
+        System.out.print(".");
+    }
+
 //   public static void initPokedexj1(){
 //       pokedexJ1 = new ArrayList<>();
 //       for (int boundj1 = 0; boundj1 < 10; boundj1++){

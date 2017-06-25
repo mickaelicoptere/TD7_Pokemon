@@ -14,12 +14,16 @@ public class Main  {
         j1.initPokedex();
         j2.initPokedex();
 
-        System.out.println(ansi().fg(Ansi.Color.BLUE).a("Joueur 1 : "+j1.toString()+"\n").reset());
-        System.out.println(ansi().fg(Ansi.Color.YELLOW).a("Joueur 2 : "+j2.toString()+"\n").reset());
+        System.out.println(ansi().fg(Ansi.Color.BLUE).a("Joueur 1 : " + j1.toString() + "\n").reset());
+        System.out.println(ansi().fg(Ansi.Color.YELLOW).a("Joueur 2 : " + j2.toString() + "\n").reset());
 
-//            while ( Joueurs.mortj1 <10 && Joueurs.mortj2 < 10){
-                j1.defier(j2);
-//            }
-        System.out.println("Morts chez le joueur 1 : " + Joueurs.mortj1 + "Morts chez le joueur 2 : " + Joueurs.mortj2);
-        }
+        j1.defier(j2);
+
+        System.out.println(ansi().fg(Ansi.Color.BLUE).a("Morts chez le joueur 1 : " + Joueurs.mortj1).reset());
+        Partie.printDeadPokemonsj1(j1);
+
+        System.out.println(ansi().fg(Ansi.Color.YELLOW).a("\nMorts chez le joueur 2 : " + Joueurs.mortj2).reset());
+        Partie.printDeadPokemonsj2(j2);
+
     }
+}
