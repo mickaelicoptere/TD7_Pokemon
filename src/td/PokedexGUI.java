@@ -33,10 +33,6 @@ public class PokedexGUI extends Application {
 
         try {
             Partie.initPartie();
-
-
-
-
             stage.initStyle(StageStyle.TRANSPARENT);
             ap = FXMLLoader.load(getClass().getResource("../Views/Pokedex.fxml"));
             ap.setStyle(
