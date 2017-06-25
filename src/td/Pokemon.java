@@ -11,9 +11,6 @@ public abstract class Pokemon {
     int pc;
     private TypesPokemon type;
     private double vitesse;
-//    private String fileImg;
-//    private ImageIcon iconPoke;
-//    private Image imgPoke;
 
     public Pokemon(){
     }

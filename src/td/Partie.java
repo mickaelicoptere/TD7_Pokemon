@@ -45,8 +45,6 @@ public class Partie extends PokedexGUI {
     public static int increment;
     public static ArrayList<Pokemon> initPokemon;
     public static Map<Integer, Pokemon> correspondanceId = new HashMap<>();
-//    public static ArrayList<Pokemon>pokedexJ1;
-//    public static ArrayList<Pokemon>pokedexJ2;
 
     public static void initPartie() {
 
@@ -59,11 +57,9 @@ public class Partie extends PokedexGUI {
                 String[] pokeTemp = line.split(splitBy);
                 for(int i = 2; i < 4; i++) {
                     doubleTemp[i] = Double.parseDouble(pokeTemp[i]);
-//                    System.out.println(doubleTemp[boundj1]);
                 }
                 for(int i = 4; i < 6; i++) {
                     intTemp[i] = Integer.parseInt(pokeTemp[i]);
-//                    System.out.println(intTemp[boundj1]);
                 }
                 String nTemp = pokeTemp[0];
                 double dTemp1 = doubleTemp[2];
@@ -104,25 +100,5 @@ public class Partie extends PokedexGUI {
         }
         System.out.print(".");
     }
-
-//   public static void initPokedexj1(){
-//       pokedexJ1 = new ArrayList<>();
-//       for (int boundj1 = 0; boundj1 < 10; boundj1++){
-//            Collections.shuffle(initPokemon);
-//            pokedexJ1.add(boundj1, initPokemon.get(boundj1));
-//            System.out.println("Pokemon n° : " + boundj1 + pokedexJ1.get(boundj1) + "\n");
-//        }
-//   }
-
-//    public static void initPokedexj2(){
-//        pokedexJ2 = new ArrayList<>();
-//        for (int boundj1 = 0; boundj1 < 10; boundj1++){
-//            Collections.shuffle(initPokemon);
-//            pokedexJ2.add(boundj1, initPokemon.get(boundj1));
-//            System.out.println("Pokemon n° : " + boundj1 + pokedexJ2.get(boundj1) + "\n");
-//        }
-//    }
-
-
 
 }
